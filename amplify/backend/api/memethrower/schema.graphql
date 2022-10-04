@@ -1,0 +1,52 @@
+type User @model
+	@auth(rules: [
+		{ allow: public, operations: [ read ] },
+		{ allow: owner, operations: [ read, create, update, delete ] }
+	])
+	@searchable
+{
+	id: ID!
+	username: String!
+	avatar: S3Object!
+	header: S3Object!
+	bio: String
+	name: String!
+	followers: [User]
+	following: [User]
+	memes: [Meme] @hasMany
+	comments: [Comment] @hasMany
+}
+
+type S3Object {
+	bucket: String!
+	region: String!
+	key: String!
+}
+
+type Meme @model
+	@auth(rules: [
+		{ allow: public, operations: [ read ] },
+		{ allow: owner, operations: [ read, create, delete ] }
+	])
+{
+	id: ID!
+	user: User! @belongsTo
+	createdAt: String!
+	img: S3Object!
+	likes: [User]
+	dislikes: [User]
+	reposts: [User]
+	comments: [Comment] @hasMany
+}
+
+type Comment @model
+	@auth(rules: [
+		{ allow: public, operations: [ read ] }
+		{ allow: owner, operations: [ read, create, update, delete ] }
+	])
+{
+	id: ID!
+	meme: Meme! @belongsTo
+	content: String!
+	user: User! @belongsTo
+}
