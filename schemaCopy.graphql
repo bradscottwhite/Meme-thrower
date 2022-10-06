@@ -1,0 +1,102 @@
+type User @model(subscriptions: null)
+  # @key(fields: ["userId"])
+  @auth(rules: [
+    { allow: owner, ownerField: "userId" },
+    { allow: private, operations: [read] }
+  ])
+{
+  userId: ID!
+  memes: [Meme] @hasMany # @connection(keyName: "memesByUserId", fields: ["userId"])
+  createdAt: String
+  updatedAt: String
+  following: [Following] @hasMany # @connection(keyName: "followingByUserId", fields: ["userId"])
+  comments: [Comment] @hasMany #added
+  commentLikes: [CommentLike] @hasMany #added
+  likes: [MemeLike] @hasMany #added
+}
+
+type Meme @model
+  # @key(name: "memesByUserId", fields: ["authorId"])
+  @auth(rules: [
+    { allow: owner, ownerField: "authorId" },
+    { allow: public, operations: [read] },
+    { allow: private, operations: [read] }
+  ])
+{
+  id: ID!
+  authorId: ID!
+  content: String!
+  postImage: String
+  author: User @belongsTo # @connection(fields: ["authorId"])
+  comments: [Comment] @hasMany # @connection(keyName: "commentsByMemeId", fields: ["id"])
+  likes: [MemeLike] @hasMany # @connection(keyName: "postLikesByMemeId", fields: ["id"])
+}
+
+type Comment @model
+  # @key(name: "commentsByMemeId", fields: ["memeId"])
+  @auth(rules: [
+    { allow: owner, ownerField: "authorId" },
+    { allow: public, operations: [read] },
+    { allow: private, operations: [read] }
+  ])
+{
+  id: ID!
+  postId: ID!
+  authorId: ID!
+  text: String!
+  likes: [CommentLike] @hasMany # @connection(keyName: "commentLikesByCommentId", fields: ["id"])
+  author: User @belongsTo # @connection(fields: ["authorId"])
+  meme: Meme @belongsTo # @connection(fields: ["memeId"])
+}
+
+type MemeLike @model
+  @auth(rules: [
+    { allow: owner, ownerField: "userId" },
+    { allow: public, operations: [read] },
+    { allow: private, operations: [read] }
+  ])
+  # @key(name: "memeLikesByPostId", fields: ["memeId"])
+  # @key(name: "memeLikesByUser", fields: ["userId", "createdAt"], queryField: "likesByUser")
+{
+  id: ID!
+  memeId: ID!
+  userId: ID!
+  user: User @belongsTo # @connection(fields: ["userId"])
+  meme: Meme @belongsTo # @connection(fields: ["memeId"])
+  createdAt: String!
+}
+
+type CommentLike @model
+  @auth(rules: [
+    { allow: owner, ownerField: "userId" },
+    { allow: public, operations: [read] },
+    { allow: private, operations: [read] }
+  ])
+  # @key(name: "commentLikesByCommentId", fields: ["commentId"])
+  # @key(name: "commentLikesByUser", fields: ["userId", "createdAt"], queryField: "likesByUser")
+{
+  id: ID!
+  userId: ID!
+  memeId: ID!
+  commentId: ID!
+  user: User @belongsTo # @connection(fields: ["userId"])
+  comment: Comment @belongsTo
+  #meme: Meme @belongsTo # @connection(fields: ["memeId"])
+  createdAt: String!
+}
+
+type Following @model
+  @auth(rules: [
+    { allow: owner, ownerField: "followerId" },
+    { allow: public, operations: [read] },
+    { allow: private, operations: [read] }
+  ])
+  # @key(name: "followingByUserId", fields: ["followerId"])
+{
+  id: ID
+  followerId: ID!
+  followingId: ID!
+  follower: User @belongsTo # @connection(fields: ["followerId"])
+  following: User @belongsTo # @connection(fields: ["followingId"])
+  createdAt: String!
+}

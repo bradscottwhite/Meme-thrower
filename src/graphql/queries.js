@@ -4,131 +4,71 @@
 export const getUser = /* GraphQL */ `
   query GetUser($id: ID!) {
     getUser(id: $id) {
-      id
-      username
-      avatar {
-        bucket
-        region
-        key
-      }
-      header {
-        bucket
-        region
-        key
-      }
-      bio
-      name
-      followers {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      following {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
+      userId
       memes {
         items {
           id
+          authorId
+          content
+          postImage
           createdAt
           updatedAt
           userMemesId
-          owner
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      following {
+        items {
+          id
+          followerId
+          followingId
+          createdAt
+          updatedAt
+          userFollowingId
         }
         nextToken
       }
       comments {
         items {
           id
-          content
+          postId
+          authorId
+          text
           createdAt
           updatedAt
           userCommentsId
           memeCommentsId
-          owner
         }
         nextToken
       }
-      createdAt
-      updatedAt
-      owner
+      commentLikes {
+        items {
+          id
+          userId
+          memeId
+          commentId
+          createdAt
+          updatedAt
+          userCommentLikesId
+          commentLikesId
+        }
+        nextToken
+      }
+      likes {
+        items {
+          id
+          memeId
+          userId
+          createdAt
+          updatedAt
+          userLikesId
+          memeLikesId
+        }
+        nextToken
+      }
+      id
     }
   }
 `;
@@ -140,128 +80,27 @@ export const listUsers = /* GraphQL */ `
   ) {
     listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
+        userId
         memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
           nextToken
         }
         comments {
           nextToken
         }
-        createdAt
-        updatedAt
-        owner
-      }
-      nextToken
-    }
-  }
-`;
-export const searchUsers = /* GraphQL */ `
-  query SearchUsers(
-    $filter: SearchableUserFilterInput
-    $sort: [SearchableUserSortInput]
-    $limit: Int
-    $nextToken: String
-    $from: Int
-    $aggregates: [SearchableUserAggregationInput]
-  ) {
-    searchUsers(
-      filter: $filter
-      sort: $sort
-      limit: $limit
-      nextToken: $nextToken
-      from: $from
-      aggregates: $aggregates
-    ) {
-      items {
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
         id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
       }
       nextToken
-      total
-      aggregateItems {
-        name
-        result {
-          ... on SearchableAggregateScalarResult {
-            value
-          }
-          ... on SearchableAggregateBucketResult {
-            buckets {
-              key
-              doc_count
-            }
-          }
-        }
-      }
     }
   }
 `;
@@ -269,199 +108,58 @@ export const getMeme = /* GraphQL */ `
   query GetMeme($id: ID!) {
     getMeme(id: $id) {
       id
-      user {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
+      authorId
+      content
+      postImage
+      author {
+        userId
         memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
           nextToken
         }
         comments {
           nextToken
         }
-        createdAt
-        updatedAt
-        owner
-      }
-      createdAt
-      img {
-        bucket
-        region
-        key
-      }
-      likes {
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
         id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      dislikes {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      reposts {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
       }
       comments {
         items {
           id
-          content
+          postId
+          authorId
+          text
           createdAt
           updatedAt
           userCommentsId
           memeCommentsId
-          owner
         }
         nextToken
       }
+      likes {
+        items {
+          id
+          memeId
+          userId
+          createdAt
+          updatedAt
+          userLikesId
+          memeLikesId
+        }
+        nextToken
+      }
+      createdAt
       updatedAt
       userMemesId
-      owner
     }
   }
 `;
@@ -474,54 +172,24 @@ export const listMemes = /* GraphQL */ `
     listMemes(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        user {
-          id
-          username
-          bio
-          name
+        authorId
+        content
+        postImage
+        author {
+          userId
           createdAt
           updatedAt
-          owner
-        }
-        createdAt
-        img {
-          bucket
-          region
-          key
-        }
-        likes {
           id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        dislikes {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        reposts {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
         }
         comments {
           nextToken
         }
+        likes {
+          nextToken
+        }
+        createdAt
         updatedAt
         userMemesId
-        owner
       }
       nextToken
     }
@@ -531,106 +199,68 @@ export const getComment = /* GraphQL */ `
   query GetComment($id: ID!) {
     getComment(id: $id) {
       id
-      meme {
-        id
-        user {
+      postId
+      authorId
+      text
+      likes {
+        items {
           id
-          username
-          bio
-          name
+          userId
+          memeId
+          commentId
           createdAt
           updatedAt
-          owner
+          userCommentLikesId
+          commentLikesId
         }
-        createdAt
-        img {
-          bucket
-          region
-          key
-        }
-        likes {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        dislikes {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        reposts {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        comments {
-          nextToken
-        }
-        updatedAt
-        userMemesId
-        owner
+        nextToken
       }
-      content
-      user {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
+      author {
+        userId
         memes {
           nextToken
         }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
         comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      meme {
+        id
+        authorId
+        content
+        postImage
+        author {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
+        comments {
+          nextToken
+        }
+        likes {
           nextToken
         }
         createdAt
         updatedAt
-        owner
+        userMemesId
       }
       createdAt
       updatedAt
       userCommentsId
       memeCommentsId
-      owner
     }
   }
 `;
@@ -643,28 +273,306 @@ export const listComments = /* GraphQL */ `
     listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
+        postId
+        authorId
+        text
+        likes {
+          nextToken
+        }
+        author {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
         meme {
           id
+          authorId
+          content
+          postImage
           createdAt
           updatedAt
           userMemesId
-          owner
-        }
-        content
-        user {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
         }
         createdAt
         updatedAt
         userCommentsId
         memeCommentsId
-        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const getMemeLike = /* GraphQL */ `
+  query GetMemeLike($id: ID!) {
+    getMemeLike(id: $id) {
+      id
+      memeId
+      userId
+      user {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      meme {
+        id
+        authorId
+        content
+        postImage
+        author {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
+        comments {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userMemesId
+      }
+      createdAt
+      updatedAt
+      userLikesId
+      memeLikesId
+    }
+  }
+`;
+export const listMemeLikes = /* GraphQL */ `
+  query ListMemeLikes(
+    $filter: ModelMemeLikeFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listMemeLikes(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        memeId
+        userId
+        user {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
+        meme {
+          id
+          authorId
+          content
+          postImage
+          createdAt
+          updatedAt
+          userMemesId
+        }
+        createdAt
+        updatedAt
+        userLikesId
+        memeLikesId
+      }
+      nextToken
+    }
+  }
+`;
+export const getCommentLike = /* GraphQL */ `
+  query GetCommentLike($id: ID!) {
+    getCommentLike(id: $id) {
+      id
+      userId
+      memeId
+      commentId
+      user {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      comment {
+        id
+        postId
+        authorId
+        text
+        likes {
+          nextToken
+        }
+        author {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
+        meme {
+          id
+          authorId
+          content
+          postImage
+          createdAt
+          updatedAt
+          userMemesId
+        }
+        createdAt
+        updatedAt
+        userCommentsId
+        memeCommentsId
+      }
+      createdAt
+      updatedAt
+      userCommentLikesId
+      commentLikesId
+    }
+  }
+`;
+export const listCommentLikes = /* GraphQL */ `
+  query ListCommentLikes(
+    $filter: ModelCommentLikeFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listCommentLikes(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        userId
+        memeId
+        commentId
+        user {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
+        comment {
+          id
+          postId
+          authorId
+          text
+          createdAt
+          updatedAt
+          userCommentsId
+          memeCommentsId
+        }
+        createdAt
+        updatedAt
+        userCommentLikesId
+        commentLikesId
+      }
+      nextToken
+    }
+  }
+`;
+export const getFollowing = /* GraphQL */ `
+  query GetFollowing($id: ID!) {
+    getFollowing(id: $id) {
+      id
+      followerId
+      followingId
+      follower {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      following {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      createdAt
+      updatedAt
+      userFollowingId
+    }
+  }
+`;
+export const listFollowings = /* GraphQL */ `
+  query ListFollowings(
+    $filter: ModelFollowingFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listFollowings(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        followerId
+        followingId
+        follower {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
+        following {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
+        createdAt
+        updatedAt
+        userFollowingId
       }
       nextToken
     }

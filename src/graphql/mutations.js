@@ -1,340 +1,77 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const updateMeme = /* GraphQL */ `
-  mutation UpdateMeme(
-    $input: UpdateMemeInput!
-    $condition: ModelMemeConditionInput
-  ) {
-    updateMeme(input: $input, condition: $condition) {
-      id
-      user {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      createdAt
-      img {
-        bucket
-        region
-        key
-      }
-      likes {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      dislikes {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      reposts {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      comments {
-        items {
-          id
-          content
-          createdAt
-          updatedAt
-          userCommentsId
-          memeCommentsId
-          owner
-        }
-        nextToken
-      }
-      updatedAt
-      userMemesId
-      owner
-    }
-  }
-`;
 export const createUser = /* GraphQL */ `
   mutation CreateUser(
     $input: CreateUserInput!
     $condition: ModelUserConditionInput
   ) {
     createUser(input: $input, condition: $condition) {
-      id
-      username
-      avatar {
-        bucket
-        region
-        key
-      }
-      header {
-        bucket
-        region
-        key
-      }
-      bio
-      name
-      followers {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      following {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
+      userId
       memes {
         items {
           id
+          authorId
+          content
+          postImage
           createdAt
           updatedAt
           userMemesId
-          owner
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      following {
+        items {
+          id
+          followerId
+          followingId
+          createdAt
+          updatedAt
+          userFollowingId
         }
         nextToken
       }
       comments {
         items {
           id
-          content
+          postId
+          authorId
+          text
           createdAt
           updatedAt
           userCommentsId
           memeCommentsId
-          owner
         }
         nextToken
       }
-      createdAt
-      updatedAt
-      owner
+      commentLikes {
+        items {
+          id
+          userId
+          memeId
+          commentId
+          createdAt
+          updatedAt
+          userCommentLikesId
+          commentLikesId
+        }
+        nextToken
+      }
+      likes {
+        items {
+          id
+          memeId
+          userId
+          createdAt
+          updatedAt
+          userLikesId
+          memeLikesId
+        }
+        nextToken
+      }
+      id
     }
   }
 `;
@@ -344,131 +81,71 @@ export const updateUser = /* GraphQL */ `
     $condition: ModelUserConditionInput
   ) {
     updateUser(input: $input, condition: $condition) {
-      id
-      username
-      avatar {
-        bucket
-        region
-        key
-      }
-      header {
-        bucket
-        region
-        key
-      }
-      bio
-      name
-      followers {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      following {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
+      userId
       memes {
         items {
           id
+          authorId
+          content
+          postImage
           createdAt
           updatedAt
           userMemesId
-          owner
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      following {
+        items {
+          id
+          followerId
+          followingId
+          createdAt
+          updatedAt
+          userFollowingId
         }
         nextToken
       }
       comments {
         items {
           id
-          content
+          postId
+          authorId
+          text
           createdAt
           updatedAt
           userCommentsId
           memeCommentsId
-          owner
         }
         nextToken
       }
-      createdAt
-      updatedAt
-      owner
+      commentLikes {
+        items {
+          id
+          userId
+          memeId
+          commentId
+          createdAt
+          updatedAt
+          userCommentLikesId
+          commentLikesId
+        }
+        nextToken
+      }
+      likes {
+        items {
+          id
+          memeId
+          userId
+          createdAt
+          updatedAt
+          userLikesId
+          memeLikesId
+        }
+        nextToken
+      }
+      id
     }
   }
 `;
@@ -478,131 +155,71 @@ export const deleteUser = /* GraphQL */ `
     $condition: ModelUserConditionInput
   ) {
     deleteUser(input: $input, condition: $condition) {
-      id
-      username
-      avatar {
-        bucket
-        region
-        key
-      }
-      header {
-        bucket
-        region
-        key
-      }
-      bio
-      name
-      followers {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      following {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
+      userId
       memes {
         items {
           id
+          authorId
+          content
+          postImage
           createdAt
           updatedAt
           userMemesId
-          owner
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      following {
+        items {
+          id
+          followerId
+          followingId
+          createdAt
+          updatedAt
+          userFollowingId
         }
         nextToken
       }
       comments {
         items {
           id
-          content
+          postId
+          authorId
+          text
           createdAt
           updatedAt
           userCommentsId
           memeCommentsId
-          owner
         }
         nextToken
       }
-      createdAt
-      updatedAt
-      owner
+      commentLikes {
+        items {
+          id
+          userId
+          memeId
+          commentId
+          createdAt
+          updatedAt
+          userCommentLikesId
+          commentLikesId
+        }
+        nextToken
+      }
+      likes {
+        items {
+          id
+          memeId
+          userId
+          createdAt
+          updatedAt
+          userLikesId
+          memeLikesId
+        }
+        nextToken
+      }
+      id
     }
   }
 `;
@@ -613,199 +230,120 @@ export const createMeme = /* GraphQL */ `
   ) {
     createMeme(input: $input, condition: $condition) {
       id
-      user {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
+      authorId
+      content
+      postImage
+      author {
+        userId
         memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
           nextToken
         }
         comments {
           nextToken
         }
-        createdAt
-        updatedAt
-        owner
-      }
-      createdAt
-      img {
-        bucket
-        region
-        key
-      }
-      likes {
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
         id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      dislikes {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      reposts {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
       }
       comments {
         items {
           id
-          content
+          postId
+          authorId
+          text
           createdAt
           updatedAt
           userCommentsId
           memeCommentsId
-          owner
         }
         nextToken
       }
+      likes {
+        items {
+          id
+          memeId
+          userId
+          createdAt
+          updatedAt
+          userLikesId
+          memeLikesId
+        }
+        nextToken
+      }
+      createdAt
       updatedAt
       userMemesId
-      owner
+    }
+  }
+`;
+export const updateMeme = /* GraphQL */ `
+  mutation UpdateMeme(
+    $input: UpdateMemeInput!
+    $condition: ModelMemeConditionInput
+  ) {
+    updateMeme(input: $input, condition: $condition) {
+      id
+      authorId
+      content
+      postImage
+      author {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      comments {
+        items {
+          id
+          postId
+          authorId
+          text
+          createdAt
+          updatedAt
+          userCommentsId
+          memeCommentsId
+        }
+        nextToken
+      }
+      likes {
+        items {
+          id
+          memeId
+          userId
+          createdAt
+          updatedAt
+          userLikesId
+          memeLikesId
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      userMemesId
     }
   }
 `;
@@ -816,199 +354,58 @@ export const deleteMeme = /* GraphQL */ `
   ) {
     deleteMeme(input: $input, condition: $condition) {
       id
-      user {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
+      authorId
+      content
+      postImage
+      author {
+        userId
         memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
           nextToken
         }
         comments {
           nextToken
         }
-        createdAt
-        updatedAt
-        owner
-      }
-      createdAt
-      img {
-        bucket
-        region
-        key
-      }
-      likes {
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
         id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      dislikes {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      reposts {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
       }
       comments {
         items {
           id
-          content
+          postId
+          authorId
+          text
           createdAt
           updatedAt
           userCommentsId
           memeCommentsId
-          owner
         }
         nextToken
       }
+      likes {
+        items {
+          id
+          memeId
+          userId
+          createdAt
+          updatedAt
+          userLikesId
+          memeLikesId
+        }
+        nextToken
+      }
+      createdAt
       updatedAt
       userMemesId
-      owner
     }
   }
 `;
@@ -1019,106 +416,68 @@ export const createComment = /* GraphQL */ `
   ) {
     createComment(input: $input, condition: $condition) {
       id
-      meme {
-        id
-        user {
+      postId
+      authorId
+      text
+      likes {
+        items {
           id
-          username
-          bio
-          name
+          userId
+          memeId
+          commentId
           createdAt
           updatedAt
-          owner
+          userCommentLikesId
+          commentLikesId
         }
-        createdAt
-        img {
-          bucket
-          region
-          key
-        }
-        likes {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        dislikes {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        reposts {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        comments {
-          nextToken
-        }
-        updatedAt
-        userMemesId
-        owner
+        nextToken
       }
-      content
-      user {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
+      author {
+        userId
         memes {
           nextToken
         }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
         comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      meme {
+        id
+        authorId
+        content
+        postImage
+        author {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
+        comments {
+          nextToken
+        }
+        likes {
           nextToken
         }
         createdAt
         updatedAt
-        owner
+        userMemesId
       }
       createdAt
       updatedAt
       userCommentsId
       memeCommentsId
-      owner
     }
   }
 `;
@@ -1129,106 +488,68 @@ export const updateComment = /* GraphQL */ `
   ) {
     updateComment(input: $input, condition: $condition) {
       id
-      meme {
-        id
-        user {
+      postId
+      authorId
+      text
+      likes {
+        items {
           id
-          username
-          bio
-          name
+          userId
+          memeId
+          commentId
           createdAt
           updatedAt
-          owner
+          userCommentLikesId
+          commentLikesId
         }
-        createdAt
-        img {
-          bucket
-          region
-          key
-        }
-        likes {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        dislikes {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        reposts {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        comments {
-          nextToken
-        }
-        updatedAt
-        userMemesId
-        owner
+        nextToken
       }
-      content
-      user {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
+      author {
+        userId
         memes {
           nextToken
         }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
         comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      meme {
+        id
+        authorId
+        content
+        postImage
+        author {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
+        comments {
+          nextToken
+        }
+        likes {
           nextToken
         }
         createdAt
         updatedAt
-        owner
+        userMemesId
       }
       createdAt
       updatedAt
       userCommentsId
       memeCommentsId
-      owner
     }
   }
 `;
@@ -1239,106 +560,611 @@ export const deleteComment = /* GraphQL */ `
   ) {
     deleteComment(input: $input, condition: $condition) {
       id
-      meme {
-        id
-        user {
+      postId
+      authorId
+      text
+      likes {
+        items {
           id
-          username
-          bio
-          name
+          userId
+          memeId
+          commentId
           createdAt
           updatedAt
-          owner
+          userCommentLikesId
+          commentLikesId
         }
-        createdAt
-        img {
-          bucket
-          region
-          key
-        }
-        likes {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        dislikes {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        reposts {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        comments {
-          nextToken
-        }
-        updatedAt
-        userMemesId
-        owner
+        nextToken
       }
-      content
-      user {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
+      author {
+        userId
         memes {
           nextToken
         }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
         comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      meme {
+        id
+        authorId
+        content
+        postImage
+        author {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
+        comments {
+          nextToken
+        }
+        likes {
           nextToken
         }
         createdAt
         updatedAt
-        owner
+        userMemesId
       }
       createdAt
       updatedAt
       userCommentsId
       memeCommentsId
-      owner
+    }
+  }
+`;
+export const createMemeLike = /* GraphQL */ `
+  mutation CreateMemeLike(
+    $input: CreateMemeLikeInput!
+    $condition: ModelMemeLikeConditionInput
+  ) {
+    createMemeLike(input: $input, condition: $condition) {
+      id
+      memeId
+      userId
+      user {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      meme {
+        id
+        authorId
+        content
+        postImage
+        author {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
+        comments {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userMemesId
+      }
+      createdAt
+      updatedAt
+      userLikesId
+      memeLikesId
+    }
+  }
+`;
+export const updateMemeLike = /* GraphQL */ `
+  mutation UpdateMemeLike(
+    $input: UpdateMemeLikeInput!
+    $condition: ModelMemeLikeConditionInput
+  ) {
+    updateMemeLike(input: $input, condition: $condition) {
+      id
+      memeId
+      userId
+      user {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      meme {
+        id
+        authorId
+        content
+        postImage
+        author {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
+        comments {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userMemesId
+      }
+      createdAt
+      updatedAt
+      userLikesId
+      memeLikesId
+    }
+  }
+`;
+export const deleteMemeLike = /* GraphQL */ `
+  mutation DeleteMemeLike(
+    $input: DeleteMemeLikeInput!
+    $condition: ModelMemeLikeConditionInput
+  ) {
+    deleteMemeLike(input: $input, condition: $condition) {
+      id
+      memeId
+      userId
+      user {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      meme {
+        id
+        authorId
+        content
+        postImage
+        author {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
+        comments {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userMemesId
+      }
+      createdAt
+      updatedAt
+      userLikesId
+      memeLikesId
+    }
+  }
+`;
+export const createCommentLike = /* GraphQL */ `
+  mutation CreateCommentLike(
+    $input: CreateCommentLikeInput!
+    $condition: ModelCommentLikeConditionInput
+  ) {
+    createCommentLike(input: $input, condition: $condition) {
+      id
+      userId
+      memeId
+      commentId
+      user {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      comment {
+        id
+        postId
+        authorId
+        text
+        likes {
+          nextToken
+        }
+        author {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
+        meme {
+          id
+          authorId
+          content
+          postImage
+          createdAt
+          updatedAt
+          userMemesId
+        }
+        createdAt
+        updatedAt
+        userCommentsId
+        memeCommentsId
+      }
+      createdAt
+      updatedAt
+      userCommentLikesId
+      commentLikesId
+    }
+  }
+`;
+export const updateCommentLike = /* GraphQL */ `
+  mutation UpdateCommentLike(
+    $input: UpdateCommentLikeInput!
+    $condition: ModelCommentLikeConditionInput
+  ) {
+    updateCommentLike(input: $input, condition: $condition) {
+      id
+      userId
+      memeId
+      commentId
+      user {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      comment {
+        id
+        postId
+        authorId
+        text
+        likes {
+          nextToken
+        }
+        author {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
+        meme {
+          id
+          authorId
+          content
+          postImage
+          createdAt
+          updatedAt
+          userMemesId
+        }
+        createdAt
+        updatedAt
+        userCommentsId
+        memeCommentsId
+      }
+      createdAt
+      updatedAt
+      userCommentLikesId
+      commentLikesId
+    }
+  }
+`;
+export const deleteCommentLike = /* GraphQL */ `
+  mutation DeleteCommentLike(
+    $input: DeleteCommentLikeInput!
+    $condition: ModelCommentLikeConditionInput
+  ) {
+    deleteCommentLike(input: $input, condition: $condition) {
+      id
+      userId
+      memeId
+      commentId
+      user {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      comment {
+        id
+        postId
+        authorId
+        text
+        likes {
+          nextToken
+        }
+        author {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
+        meme {
+          id
+          authorId
+          content
+          postImage
+          createdAt
+          updatedAt
+          userMemesId
+        }
+        createdAt
+        updatedAt
+        userCommentsId
+        memeCommentsId
+      }
+      createdAt
+      updatedAt
+      userCommentLikesId
+      commentLikesId
+    }
+  }
+`;
+export const createFollowing = /* GraphQL */ `
+  mutation CreateFollowing(
+    $input: CreateFollowingInput!
+    $condition: ModelFollowingConditionInput
+  ) {
+    createFollowing(input: $input, condition: $condition) {
+      id
+      followerId
+      followingId
+      follower {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      following {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      createdAt
+      updatedAt
+      userFollowingId
+    }
+  }
+`;
+export const updateFollowing = /* GraphQL */ `
+  mutation UpdateFollowing(
+    $input: UpdateFollowingInput!
+    $condition: ModelFollowingConditionInput
+  ) {
+    updateFollowing(input: $input, condition: $condition) {
+      id
+      followerId
+      followingId
+      follower {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      following {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      createdAt
+      updatedAt
+      userFollowingId
+    }
+  }
+`;
+export const deleteFollowing = /* GraphQL */ `
+  mutation DeleteFollowing(
+    $input: DeleteFollowingInput!
+    $condition: ModelFollowingConditionInput
+  ) {
+    deleteFollowing(input: $input, condition: $condition) {
+      id
+      followerId
+      followingId
+      follower {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      following {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      createdAt
+      updatedAt
+      userFollowingId
     }
   }
 `;

@@ -1,1317 +1,903 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateUser = /* GraphQL */ `
-  subscription OnCreateUser($owner: String) {
-    onCreateUser(owner: $owner) {
-      id
-      username
-      avatar {
-        bucket
-        region
-        key
-      }
-      header {
-        bucket
-        region
-        key
-      }
-      bio
-      name
-      followers {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      following {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      memes {
-        items {
-          id
-          createdAt
-          updatedAt
-          userMemesId
-          owner
-        }
-        nextToken
-      }
-      comments {
-        items {
-          id
-          content
-          createdAt
-          updatedAt
-          userCommentsId
-          memeCommentsId
-          owner
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const onUpdateUser = /* GraphQL */ `
-  subscription OnUpdateUser($owner: String) {
-    onUpdateUser(owner: $owner) {
-      id
-      username
-      avatar {
-        bucket
-        region
-        key
-      }
-      header {
-        bucket
-        region
-        key
-      }
-      bio
-      name
-      followers {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      following {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      memes {
-        items {
-          id
-          createdAt
-          updatedAt
-          userMemesId
-          owner
-        }
-        nextToken
-      }
-      comments {
-        items {
-          id
-          content
-          createdAt
-          updatedAt
-          userCommentsId
-          memeCommentsId
-          owner
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const onDeleteUser = /* GraphQL */ `
-  subscription OnDeleteUser($owner: String) {
-    onDeleteUser(owner: $owner) {
-      id
-      username
-      avatar {
-        bucket
-        region
-        key
-      }
-      header {
-        bucket
-        region
-        key
-      }
-      bio
-      name
-      followers {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      following {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      memes {
-        items {
-          id
-          createdAt
-          updatedAt
-          userMemesId
-          owner
-        }
-        nextToken
-      }
-      comments {
-        items {
-          id
-          content
-          createdAt
-          updatedAt
-          userCommentsId
-          memeCommentsId
-          owner
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
 export const onCreateMeme = /* GraphQL */ `
-  subscription OnCreateMeme($owner: String) {
-    onCreateMeme(owner: $owner) {
+  subscription OnCreateMeme($authorId: String) {
+    onCreateMeme(authorId: $authorId) {
       id
-      user {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
+      authorId
+      content
+      postImage
+      author {
+        userId
         memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
           nextToken
         }
         comments {
           nextToken
         }
-        createdAt
-        updatedAt
-        owner
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
       }
-      createdAt
-      img {
-        bucket
-        region
-        key
+      comments {
+        items {
+          id
+          postId
+          authorId
+          text
+          createdAt
+          updatedAt
+          userCommentsId
+          memeCommentsId
+        }
+        nextToken
       }
       likes {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      dislikes {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      reposts {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      comments {
         items {
           id
-          content
+          memeId
+          userId
           createdAt
           updatedAt
-          userCommentsId
-          memeCommentsId
-          owner
+          userLikesId
+          memeLikesId
         }
         nextToken
       }
+      createdAt
       updatedAt
       userMemesId
-      owner
     }
   }
 `;
 export const onUpdateMeme = /* GraphQL */ `
-  subscription OnUpdateMeme($owner: String) {
-    onUpdateMeme(owner: $owner) {
+  subscription OnUpdateMeme($authorId: String) {
+    onUpdateMeme(authorId: $authorId) {
       id
-      user {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
+      authorId
+      content
+      postImage
+      author {
+        userId
         memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
           nextToken
         }
         comments {
           nextToken
         }
-        createdAt
-        updatedAt
-        owner
-      }
-      createdAt
-      img {
-        bucket
-        region
-        key
-      }
-      likes {
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
         id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      dislikes {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      reposts {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
       }
       comments {
         items {
           id
-          content
+          postId
+          authorId
+          text
           createdAt
           updatedAt
           userCommentsId
           memeCommentsId
-          owner
         }
         nextToken
       }
+      likes {
+        items {
+          id
+          memeId
+          userId
+          createdAt
+          updatedAt
+          userLikesId
+          memeLikesId
+        }
+        nextToken
+      }
+      createdAt
       updatedAt
       userMemesId
-      owner
     }
   }
 `;
 export const onDeleteMeme = /* GraphQL */ `
-  subscription OnDeleteMeme($owner: String) {
-    onDeleteMeme(owner: $owner) {
+  subscription OnDeleteMeme($authorId: String) {
+    onDeleteMeme(authorId: $authorId) {
       id
-      user {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
+      authorId
+      content
+      postImage
+      author {
+        userId
         memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
           nextToken
         }
         comments {
           nextToken
         }
-        createdAt
-        updatedAt
-        owner
-      }
-      createdAt
-      img {
-        bucket
-        region
-        key
-      }
-      likes {
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
         id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      dislikes {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      reposts {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        memes {
-          nextToken
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        owner
       }
       comments {
         items {
           id
-          content
+          postId
+          authorId
+          text
           createdAt
           updatedAt
           userCommentsId
           memeCommentsId
-          owner
         }
         nextToken
       }
+      likes {
+        items {
+          id
+          memeId
+          userId
+          createdAt
+          updatedAt
+          userLikesId
+          memeLikesId
+        }
+        nextToken
+      }
+      createdAt
       updatedAt
       userMemesId
-      owner
     }
   }
 `;
 export const onCreateComment = /* GraphQL */ `
-  subscription OnCreateComment($owner: String) {
-    onCreateComment(owner: $owner) {
+  subscription OnCreateComment($authorId: String) {
+    onCreateComment(authorId: $authorId) {
       id
-      meme {
-        id
-        user {
+      postId
+      authorId
+      text
+      likes {
+        items {
           id
-          username
-          bio
-          name
+          userId
+          memeId
+          commentId
           createdAt
           updatedAt
-          owner
+          userCommentLikesId
+          commentLikesId
         }
-        createdAt
-        img {
-          bucket
-          region
-          key
-        }
-        likes {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        dislikes {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        reposts {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        comments {
-          nextToken
-        }
-        updatedAt
-        userMemesId
-        owner
+        nextToken
       }
-      content
-      user {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
+      author {
+        userId
         memes {
           nextToken
         }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
         comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      meme {
+        id
+        authorId
+        content
+        postImage
+        author {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
+        comments {
+          nextToken
+        }
+        likes {
           nextToken
         }
         createdAt
         updatedAt
-        owner
+        userMemesId
       }
       createdAt
       updatedAt
       userCommentsId
       memeCommentsId
-      owner
     }
   }
 `;
 export const onUpdateComment = /* GraphQL */ `
-  subscription OnUpdateComment($owner: String) {
-    onUpdateComment(owner: $owner) {
+  subscription OnUpdateComment($authorId: String) {
+    onUpdateComment(authorId: $authorId) {
       id
-      meme {
-        id
-        user {
+      postId
+      authorId
+      text
+      likes {
+        items {
           id
-          username
-          bio
-          name
+          userId
+          memeId
+          commentId
           createdAt
           updatedAt
-          owner
+          userCommentLikesId
+          commentLikesId
         }
-        createdAt
-        img {
-          bucket
-          region
-          key
-        }
-        likes {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        dislikes {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        reposts {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        comments {
-          nextToken
-        }
-        updatedAt
-        userMemesId
-        owner
+        nextToken
       }
-      content
-      user {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
+      author {
+        userId
         memes {
           nextToken
         }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
         comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      meme {
+        id
+        authorId
+        content
+        postImage
+        author {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
+        comments {
+          nextToken
+        }
+        likes {
           nextToken
         }
         createdAt
         updatedAt
-        owner
+        userMemesId
       }
       createdAt
       updatedAt
       userCommentsId
       memeCommentsId
-      owner
     }
   }
 `;
 export const onDeleteComment = /* GraphQL */ `
-  subscription OnDeleteComment($owner: String) {
-    onDeleteComment(owner: $owner) {
+  subscription OnDeleteComment($authorId: String) {
+    onDeleteComment(authorId: $authorId) {
       id
-      meme {
-        id
-        user {
+      postId
+      authorId
+      text
+      likes {
+        items {
           id
-          username
-          bio
-          name
+          userId
+          memeId
+          commentId
           createdAt
           updatedAt
-          owner
+          userCommentLikesId
+          commentLikesId
         }
-        createdAt
-        img {
-          bucket
-          region
-          key
-        }
-        likes {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        dislikes {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        reposts {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        comments {
-          nextToken
-        }
-        updatedAt
-        userMemesId
-        owner
+        nextToken
       }
-      content
-      user {
-        id
-        username
-        avatar {
-          bucket
-          region
-          key
-        }
-        header {
-          bucket
-          region
-          key
-        }
-        bio
-        name
-        followers {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
-        following {
-          id
-          username
-          bio
-          name
-          createdAt
-          updatedAt
-          owner
-        }
+      author {
+        userId
         memes {
           nextToken
         }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
         comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      meme {
+        id
+        authorId
+        content
+        postImage
+        author {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
+        comments {
+          nextToken
+        }
+        likes {
           nextToken
         }
         createdAt
         updatedAt
-        owner
+        userMemesId
       }
       createdAt
       updatedAt
       userCommentsId
       memeCommentsId
-      owner
+    }
+  }
+`;
+export const onCreateMemeLike = /* GraphQL */ `
+  subscription OnCreateMemeLike($userId: String) {
+    onCreateMemeLike(userId: $userId) {
+      id
+      memeId
+      userId
+      user {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      meme {
+        id
+        authorId
+        content
+        postImage
+        author {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
+        comments {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userMemesId
+      }
+      createdAt
+      updatedAt
+      userLikesId
+      memeLikesId
+    }
+  }
+`;
+export const onUpdateMemeLike = /* GraphQL */ `
+  subscription OnUpdateMemeLike($userId: String) {
+    onUpdateMemeLike(userId: $userId) {
+      id
+      memeId
+      userId
+      user {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      meme {
+        id
+        authorId
+        content
+        postImage
+        author {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
+        comments {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userMemesId
+      }
+      createdAt
+      updatedAt
+      userLikesId
+      memeLikesId
+    }
+  }
+`;
+export const onDeleteMemeLike = /* GraphQL */ `
+  subscription OnDeleteMemeLike($userId: String) {
+    onDeleteMemeLike(userId: $userId) {
+      id
+      memeId
+      userId
+      user {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      meme {
+        id
+        authorId
+        content
+        postImage
+        author {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
+        comments {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userMemesId
+      }
+      createdAt
+      updatedAt
+      userLikesId
+      memeLikesId
+    }
+  }
+`;
+export const onCreateCommentLike = /* GraphQL */ `
+  subscription OnCreateCommentLike($userId: String) {
+    onCreateCommentLike(userId: $userId) {
+      id
+      userId
+      memeId
+      commentId
+      user {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      comment {
+        id
+        postId
+        authorId
+        text
+        likes {
+          nextToken
+        }
+        author {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
+        meme {
+          id
+          authorId
+          content
+          postImage
+          createdAt
+          updatedAt
+          userMemesId
+        }
+        createdAt
+        updatedAt
+        userCommentsId
+        memeCommentsId
+      }
+      createdAt
+      updatedAt
+      userCommentLikesId
+      commentLikesId
+    }
+  }
+`;
+export const onUpdateCommentLike = /* GraphQL */ `
+  subscription OnUpdateCommentLike($userId: String) {
+    onUpdateCommentLike(userId: $userId) {
+      id
+      userId
+      memeId
+      commentId
+      user {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      comment {
+        id
+        postId
+        authorId
+        text
+        likes {
+          nextToken
+        }
+        author {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
+        meme {
+          id
+          authorId
+          content
+          postImage
+          createdAt
+          updatedAt
+          userMemesId
+        }
+        createdAt
+        updatedAt
+        userCommentsId
+        memeCommentsId
+      }
+      createdAt
+      updatedAt
+      userCommentLikesId
+      commentLikesId
+    }
+  }
+`;
+export const onDeleteCommentLike = /* GraphQL */ `
+  subscription OnDeleteCommentLike($userId: String) {
+    onDeleteCommentLike(userId: $userId) {
+      id
+      userId
+      memeId
+      commentId
+      user {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      comment {
+        id
+        postId
+        authorId
+        text
+        likes {
+          nextToken
+        }
+        author {
+          userId
+          createdAt
+          updatedAt
+          id
+        }
+        meme {
+          id
+          authorId
+          content
+          postImage
+          createdAt
+          updatedAt
+          userMemesId
+        }
+        createdAt
+        updatedAt
+        userCommentsId
+        memeCommentsId
+      }
+      createdAt
+      updatedAt
+      userCommentLikesId
+      commentLikesId
+    }
+  }
+`;
+export const onCreateFollowing = /* GraphQL */ `
+  subscription OnCreateFollowing($followerId: String) {
+    onCreateFollowing(followerId: $followerId) {
+      id
+      followerId
+      followingId
+      follower {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      following {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      createdAt
+      updatedAt
+      userFollowingId
+    }
+  }
+`;
+export const onUpdateFollowing = /* GraphQL */ `
+  subscription OnUpdateFollowing($followerId: String) {
+    onUpdateFollowing(followerId: $followerId) {
+      id
+      followerId
+      followingId
+      follower {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      following {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      createdAt
+      updatedAt
+      userFollowingId
+    }
+  }
+`;
+export const onDeleteFollowing = /* GraphQL */ `
+  subscription OnDeleteFollowing($followerId: String) {
+    onDeleteFollowing(followerId: $followerId) {
+      id
+      followerId
+      followingId
+      follower {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      following {
+        userId
+        memes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        following {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        commentLikes {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        id
+      }
+      createdAt
+      updatedAt
+      userFollowingId
     }
   }
 `;

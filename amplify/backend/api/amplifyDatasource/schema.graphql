@@ -1,0 +1,30 @@
+type Comment @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  body: String
+  user: User @hasOne
+}
+
+type User @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  username: String
+  profilePic: String
+}
+
+enum ContentType {
+  IMAGE
+  VIDEO
+}
+
+type Content @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  source: String
+  type: ContentType
+}
+
+type TimelineItem @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  description: String
+  postTime: AWSDateTime
+  author: User @hasOne
+  content: Content @hasOne
+}
