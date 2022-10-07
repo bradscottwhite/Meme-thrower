@@ -31,6 +31,13 @@ export const schema = {
                         "targetName": "commentUserId"
                     }
                 },
+                "timelineitemID": {
+                    "name": "timelineitemID",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -61,6 +68,15 @@ export const schema = {
                 {
                     "type": "model",
                     "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byTimelineItem",
+                        "fields": [
+                            "timelineitemID"
+                        ]
+                    }
                 },
                 {
                     "type": "auth",
@@ -99,6 +115,13 @@ export const schema = {
                 },
                 "profilePic": {
                     "name": "profilePic",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "name": {
+                    "name": "name",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -266,6 +289,20 @@ export const schema = {
                         "targetName": "timelineItemContentId"
                     }
                 },
+                "Comments": {
+                    "name": "Comments",
+                    "isArray": true,
+                    "type": {
+                        "model": "Comment"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "timelineitemID"
+                    }
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -333,5 +370,5 @@ export const schema = {
         }
     },
     "nonModels": {},
-    "version": "f4aba59348c3aeaa442262c3a02d84cc"
+    "version": "b70daa419244160f79f4de72a83eab1b"
 };

@@ -25,6 +25,7 @@ export declare class Comment {
   readonly id: string;
   readonly body?: string | null;
   readonly user?: User | null;
+  readonly timelineitemID: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   readonly commentUserId?: string | null;
@@ -36,6 +37,7 @@ export declare class User {
   readonly id: string;
   readonly username?: string | null;
   readonly profilePic?: string | null;
+  readonly name?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<User, UserMetaData>);
@@ -58,6 +60,7 @@ export declare class TimelineItem {
   readonly postTime?: string | null;
   readonly author?: User | null;
   readonly content?: Content | null;
+  readonly Comments?: (Comment | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   readonly timelineItemAuthorId?: string | null;
