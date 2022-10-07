@@ -9,10 +9,20 @@ import { Timeline } from './Timeline'
 import { Card } from './Card'
 import { CommentList } from './CommentList'
 
+import { Comment } from './models'
 
 const App = () => {
 	const [ users, setUsers ] = useState([])
 	const [ user, setUser ] = useState('Select a user')
+
+	/*useEffect(() => {//1,6,7
+		const delComment = async id => {
+			await DataStore.delete(Comment, comment => null)
+		}
+		delComment(1)
+		//delComment(6)
+		//delComment(7)
+	}, [])*/
 
 	useEffect(() => {
 		const getUsers = async () => {
